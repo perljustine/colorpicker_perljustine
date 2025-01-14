@@ -76,3 +76,15 @@ button:hover {
     transition: ease-in-out 0.6s;
 }
 
+.rotated-right{
+    transform: rotate(-360deg) scale(1.2);
+    transition: ease-in-out 0.4s;
+  }
+.rotated-left{
+    transform: rotate(360deg) scale(0.6);
+    transition: ease-in-out 0.4s;
+  }
+.cell.normal-size {
+    transform: none;
+    transition: transform 0.4s ease-in-out;
+}

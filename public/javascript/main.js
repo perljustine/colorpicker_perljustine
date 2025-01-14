@@ -12,9 +12,6 @@ bar.classList.add('bar');
 body.appendChild(grid);
 body.appendChild(bar);
 
-
-
-
 let selectedColor = 0;
 const colors = [
     "AliceBlue",
@@ -32,12 +29,29 @@ for (let i = 0; i < 5; i++) {
     for (let j = 0; j < 5; j++) {
         const cell = document.createElement('div');
         cell.classList.add('cell');
+        
+        // Gérer le clic sur la cellule pour appliquer la couleur et la rotation
         cell.addEventListener('click', () => {
             cell.style.backgroundColor = selectedColor;
+            cell.classList.add('rotated-right');
+            cell.classList.remove('rotated-left');
         });
+
+        // Gérer le double-clic pour enlever la couleur et appliquer la rotation à gauche
         cell.addEventListener('dblclick', () => {
-            cell.style.backgroundColor = '';
+            cell.style.backgroundColor = ''; // Enlever la couleur
+            cell.classList.add('rotated-left');
+            cell.classList.remove('rotated-right', 'normal-size');
         });
+
+        // Réinitialiser la taille après la rotation
+        cell.addEventListener('transitionend', () => {
+            if (cell.classList.contains('rotated-right') || cell.classList.contains('rotated-left')) {
+                cell.classList.add('normal-size');
+                cell.classList.remove('rotated-right', 'rotated-left');
+            }
+        });
+
         grid.appendChild(cell);
     }
 }
@@ -53,13 +67,23 @@ for (let i = 0; i < 9; i++) {
     bar.appendChild(cell2);
 }
 
-let clearbttn = document.createElement('button')
-clearbttn.textContent = "Clear"
+let clearbttn = document.createElement('button');
+clearbttn.textContent = "Clear";
 body.appendChild(clearbttn);
 
-
 clearbttn.addEventListener('click', () => {
+    // Appliquer à toutes les cellules
     document.querySelectorAll('.cell').forEach(cell => {
-        cell.style.backgroundColor ='';})
-
-})
+        cell.style.backgroundColor = ''; // Enlever la couleur
+        cell.classList.remove('rotated-right', 'normal-size');
+        cell.classList.add('rotated-left');
+      
+        
+        // Réinitialiser la taille après la rotation
+        cell.addEventListener('transitionend', function onTransitionEnd() {
+            cell.classList.add('normal-size');
+            cell.classList.remove('rotated-left');
+            cell.removeEventListener('transitionend', onTransitionEnd);
+        });
+    });
+});
