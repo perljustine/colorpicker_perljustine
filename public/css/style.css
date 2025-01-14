@@ -1,37 +1,35 @@
 .grid {
     display: grid;
-    grid-template-rows: repeat(6, 1fr);
     grid-template-columns: repeat(5, 1fr);
-    border: 1px dotted rgb(51, 19, 235);
-    width: 400px;
-    height: 400px;
-    border-radius: 20px;
-  }
+    grid-template-rows: repeat(5, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+    width: fit-content;
+    margin: 0 ;
+}
 
-  .bar {
-    display: grid;
+.cell {
+    width: 60px;
+    height: 60px;
+    border: 2px dotted rgba(0, 0, 255, 0.581);
+    border-radius: 10px;
+}
+
+.bar {
+    display: flex;
+    grid-template-columns: repeat(9, 1fr);
     grid-template-rows: repeat(1, 1fr);
-    grid-template-columns: repeat(5, 1fr);
-    border: 1px dotted rgb(51, 19, 235);
-    width: 400px;
-    height: 100px;
+    gap: 10px;
+    width: fit-content;
+    margin: 20px;
+}
+
+.cell2 {
+    width: 40px;
+    height: 40px;
+    border: 2px dotted rgba(0, 0, 255, 0.581);
     border-radius: 20px;
-  }
-
-  /* Define the grid cell styles */
-  .cell {
-    border: 1px dotted rgb(51, 19, 235);
-    border-radius:  20px;
-    background-color: rgba(34, 135, 194, 0.398);
-  }
-
-  .cell2 {
-    border: 1px dotted rgb(51, 19, 235);
-    border-radius:  50px;
-
-    background-color: rgba(34, 135, 194, 0.398);
-  }
-
+}
 
 
 body {
@@ -39,7 +37,6 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 20px;
     height: 100vh;
     background: linear-gradient(135deg, #08377d 0%, #455de3 50%,  #7284ea 100% );
    

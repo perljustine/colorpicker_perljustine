@@ -14,12 +14,10 @@ for (let i = 0; i < 5; i++) {
     }
 }
 
-for (let i = 0; i < 6; i++) {
-    for (let j = 0; j < 6; j++) {
-        const cell2 = document.createElement('div');
-        cell2.classList.add('cell2');
-        bar.appendChild(cell2);
-    }
+for (let i = 0; i < 9; i++) {
+    const cell2 = document.createElement('div');
+    cell2.classList.add('cell2');
+    bar.appendChild(cell2);
 }
 
 
