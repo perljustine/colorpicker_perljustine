@@ -42,7 +42,7 @@ for (let i = 0; i < 5; i++) {
     }
 }
 
-// Création de la barre de couleurs
+
 for (let i = 0; i < 9; i++) {
     const cell2 = document.createElement('div');
     cell2.classList.add('cell2');
